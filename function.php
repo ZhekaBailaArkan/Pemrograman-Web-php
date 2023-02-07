@@ -1,8 +1,8 @@
 <?php
 
-function salam($nama = "Administrator")
+function salam($waktu, $nama = "Administrator")
 {
-    return "Selamat datang $nama";
+    return "Selamat $waktu, $nama";
 }
 
 ?>
@@ -19,7 +19,7 @@ function salam($nama = "Administrator")
 
 <body>
 
-    <?= salam("Zheka Baila Arkan") ?>
+    <?= salam("Pagi", "Zheka Baila Arkan") ?>
 
 </body>
 
