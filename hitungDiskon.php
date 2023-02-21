@@ -2,21 +2,23 @@
 
 function HitungDiskon($nilai)
 {
-    $total = $nilai['tBelanja'];
+    $total = $nilai['totalBelanja'];
     $diskon = 0;
     if ($total > 10_000_000) {
-        $diskon = "Potongan harga anda adalah : " . "<b>" . 200_000 . "</b>";
+        $diskon = "Potongan harga anda adalah Rp. : " . "<b>" . 200_000 . "</b>";
     } elseif ($total == 10_000_000) {
-        $diskon = "Potongan harga anda adalah : " . "<b>" . 150_000 . "</b>";
+        $diskon = "Potongan harga anda adalah Rp. : " . "<b>" . 150_000 . "</b>";
     } elseif ($total >= 7_500_000) {
-        $diskon = "Potongan harga anda adalah : " . "<b>" . 100_000 . "</b>";
+        $diskon = "Potongan harga anda adalah Rp. : " . "<b>" . 100_000 . "</b>";
     } elseif ($total >= 5_000_000) {
-        $diskon = "Potongan harga anda adalah : " . "<b>" . 50_000 . "</b>";
+        $diskon = "Potongan harga anda adalah Rp. : " . "<b>" . 50_000 . "</b>";
     } else {
         $diskon = "Anda tidak mendapat potongan harga!";
     }
     return $diskon;
 }
+
+// echo HitungDiskon(6_000_000);
 
 ?>
 
@@ -33,7 +35,7 @@ function HitungDiskon($nilai)
 <body>
     <form action="" method="post">
         <label>Total Belanja : </label>
-        <input type="number" placeholder="Type here" name="tBelanja">
+        <input type="number" placeholder="Type here" name="totalBelanja">
         <br>
         <button name="submit" type="submit">
             Lihat Diskon
@@ -41,7 +43,7 @@ function HitungDiskon($nilai)
     </form>
 
     <?php if (isset($_POST['submit'])) : ?>
-        <?= "Total belanja anda : " . "<b>" . $_POST['tBelanja'] . "</b>" ?>
+        <?= "Total belanja anda : " . "<b>" . $_POST['totalBelanja'] . "</b>" ?>
         <br>
         <?= HitungDiskon($_POST) ?>
     <?php endif; ?>
