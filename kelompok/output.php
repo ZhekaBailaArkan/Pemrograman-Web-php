@@ -1,9 +1,8 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "koperasi_siswa");
+require 'functions.php';
 
-$query = mysqli_query($conn, "SELECT * FROM tabungan ");
-
+$result = query("SELECT * FROM tabungan");
 
 ?>
 
@@ -51,7 +50,7 @@ $query = mysqli_query($conn, "SELECT * FROM tabungan ");
             </thead>
             <tbody>
                 <?php $i = 1; ?>
-                <?php while ($row = mysqli_fetch_assoc($query)) : ?>
+                <?php foreach ($result as $row) : ?>
                     <tr>
                         <td><?= $i; ?></td>
                         <td><?= $row["nama_siswa"]; ?></td>
@@ -63,7 +62,7 @@ $query = mysqli_query($conn, "SELECT * FROM tabungan ");
                     </tr>
                 <?php
                     $i++;
-                endwhile;
+                endforeach;
                 ?>
             </tbody>
         </table>
